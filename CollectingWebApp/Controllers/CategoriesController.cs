@@ -22,6 +22,7 @@ namespace CollectingWebApp.Controllers
         // GET: Categories
         public async Task<IActionResult> Index()
         {
+            Counter();
               return _context.Category != null ? 
                           View(await _context.Category.ToListAsync()) :
                           Problem("Entity set 'AppDbContext.Category'  is null.");
@@ -161,6 +162,10 @@ namespace CollectingWebApp.Controllers
         private bool CategoryExists(int id)
         {
           return (_context.Category?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+        public void Counter()
+        {
+            ViewBag.Count = _context.Category.Count();
         }
     }
 }

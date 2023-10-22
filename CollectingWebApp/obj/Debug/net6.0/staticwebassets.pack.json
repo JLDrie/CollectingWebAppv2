@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\Pics\\fotoweb.png"
     },
     {
+      "Id": "C:\\Users\\Jino\\source\\repos\\CollectingWebApp\\CollectingWebApp\\wwwroot\\css\\Image\\Zwitsal-luiers.jpg",
+      "PackagePath": "staticwebassets\\css\\Image\\Zwitsal-luiers.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Jino\\source\\repos\\CollectingWebApp\\CollectingWebApp\\wwwroot\\css\\Image\\bg.jpg",
+      "PackagePath": "staticwebassets\\css\\Image\\bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Jino\\source\\repos\\CollectingWebApp\\CollectingWebApp\\wwwroot\\css\\Image\\muur.jpg",
+      "PackagePath": "staticwebassets\\css\\Image\\muur.jpg"
+    },
+    {
       "Id": "C:\\Users\\Jino\\source\\repos\\CollectingWebApp\\CollectingWebApp\\wwwroot\\css\\bootswatch.css",
       "PackagePath": "staticwebassets\\css\\bootswatch.css"
     },

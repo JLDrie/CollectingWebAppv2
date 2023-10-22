@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CollectingWebApp.Data;
 using CollectingWebApp.Models;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 
 namespace CollectingWebApp.Controllers
 {
@@ -22,8 +23,10 @@ namespace CollectingWebApp.Controllers
         // GET: Collections
         public async Task<IActionResult> Index(int? CategoryId)
         {
+
             if (CategoryId != null)
             {
+
                 var AppDbContext = _context.Collection
                     .Include(v => v.Category)
                     .Where(o => o.CategoryId == CategoryId);
@@ -31,6 +34,7 @@ namespace CollectingWebApp.Controllers
             }
             else
             {
+                Counter();
                 var appDbContext = _context.Collection.Include(c => c.Category);
                 return View(await appDbContext.ToListAsync());
             }
@@ -178,5 +182,79 @@ namespace CollectingWebApp.Controllers
         {
           return (_context.Collection?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+        public void Counter()
+        {
+            //int i = 0;
+            //var context = _context.Object;
+            //foreach(var item in context)
+            //{
+            //    if(item.CollectionId == collid)
+            //    {
+            //        //int i = 0;
+            //        i++;
+            //        //List<int> count = new List<int>();
+
+            //    }
+            //    ViewBag.Count = i;
+
+            //}
+            //int o = 0;
+            //foreach(var collection in _context.Collection)
+            //{
+            //    foreach(var item in _context.Object)
+            //    {
+            //        if(item.CollectionId == collection.Id) 
+            //        {
+            //            o++;
+            //        }
+            //    }
+            //    ViewBag.Count = o;
+
+            //}
+            List<Models.Object> objectscountlist = new List<Models.Object>();
+            int collid = 2;
+            int i = 0;
+            foreach (var item1 in _context.Object)
+            {
+                if(item1.CollectionId == collid)
+                {
+                    objectscountlist.Add(item1);
+                    i = objectscountlist.Count();
+                }
+
+            }
+            ViewBag.Count = i;
+
+            //foreach (var item in _context.Collection)
+            //{
+            //    List<Models.Object> objects = new List<Models.Object>();
+            //    Models.Object object1 = new Models.Object();
+
+            //    objects.Add(object1);
+            //    i = objects.Count();
+            //}
+            //    ViewBag.Count = i;
+            
+         //   _context.Object
+        }
+
+        //public async Task ObjectCounter()
+        //{
+        //    var collection =  _context.Collection;
+        //    foreach (var collection1 in collection)
+        //    {
+        //        foreach(var item in _context.Object)
+        //        {
+        //            if (collection1.Id == item.CollectionId)
+        //            {
+        //                collection1.Objects.Add(item);
+        //            }
+        //            ViewBag.Count = collection1.Objects.Count();
+
+
+        //        }
+        //    }
+
+        //}
     }
 }
